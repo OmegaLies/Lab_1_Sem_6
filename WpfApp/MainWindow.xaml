@@ -13,11 +13,12 @@
         <local:AccurasyConverter x:Key="AccurasyConverter"/>
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,0,0,-54">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="24*"/>
         </Grid.ColumnDefinitions>
+
         <Menu Height="26" VerticalAlignment="Top" Grid.ColumnSpan="3">
             <MenuItem FontSize="18" Header="File" Width="40">
                 <MenuItem Header="New" Click="Click_New"/>
@@ -43,13 +44,13 @@
         <Label Content="Num of nodes:" Grid.Column="1" Margin="0,110,0,0" Height="30" Width="90" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <Label Content="First:" Grid.Column="1" Margin="0,151,0,0" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="First" TextWrapping="Wrap" Grid.Column="1" Margin="105,151,513,0" Height="25" VerticalAlignment="Top" TextChanged="FirstTextChange"
+        <TextBox x:Name="First" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="105,151,513,0" Height="25" VerticalAlignment="Top" TextChanged="FirstTextChange"
                  DataContext="{Binding grid.first, Mode=TwoWay,
                  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Foreground="Black" Background="#FFF0F0F0" >
         </TextBox>
 
         <Label Content="Last:" Grid.Column="1" Height="30" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,190,0,0"/>
-        <TextBox x:Name="Last" TextWrapping="Wrap" Grid.Column="1" Margin="105,192,513,0" Height="25" VerticalAlignment="Top" TextChanged="LastTextChange"
+        <TextBox x:Name="Last" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="105,192,513,0" Height="25" VerticalAlignment="Top" TextChanged="LastTextChange"
                  DataContext="{Binding grid.last, Mode=TwoWay, 
                  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" Foreground="Black" Background="#FFF0F0F0" >
         </TextBox>
@@ -88,31 +89,30 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <TextBlock x:Name="Change"  Grid.Column="1" Margin="433,316,185,88" Height="30" Width="150"
+        <TextBlock x:Name="Change" Grid.Column="1" Margin="434,365,184,0" Height="30" Width="150"
                    Text="{Binding Vdata.change_property, Converter={StaticResource ChangeConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
-                   RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" VerticalAlignment="Top" Background="#FFF0F0F0">
-        </TextBlock>
-        <TextBox x:Name="Nodes" TextWrapping="Wrap" Grid.Column="1" Margin="105,110,513,294" Height="25" VerticalAlignment="Top" TextChanged="NodesTextChange"
+                   RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" VerticalAlignment="Top" Background="#FFF0F0F0"/>
+        <TextBox x:Name="Nodes" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="105,110,513,294" Height="25" VerticalAlignment="Top" TextChanged="NodesTextChange"
                  DataContext="{Binding grid.n, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}},
                  UpdateSourceTrigger=PropertyChanged}" Foreground="Black" Background="#FFF0F0F0" />
 
         <Label Content="Min EP:" Grid.Column="1" Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,238,0,0"/>
-        <TextBlock x:Name="MinEP" Grid.Column="1" HorizontalAlignment="Left"
+        <TextBlock x:Name="MinEP" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"
                    Text="{Binding Vdata.Bench.min_EP, Mode=OneWay, RelativeSource={RelativeSource FindAncestor,
                    AncestorType={x:Type local:MainWindow}}}" TextWrapping="Wrap" VerticalAlignment="Top"
                    Height="24" Width="150" TextAlignment="Center" Margin="105,238,0,0"/>
 
         <Label Content="Min HA" Grid.Column="1" Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,274,0,0"/>
-        <TextBlock x:Name="MinHA" Grid.Column="1" HorizontalAlignment="Left"
+        <TextBlock x:Name="MinHA" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"
                    Text="{Binding Vdata.Bench.min_HA, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}"
                    TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="150" TextAlignment="Center" Margin="105,274,0,0"/>
 
-        <TextBlock x:Name="TimeList_info" Grid.Column="1" HorizontalAlignment="Left" 
+        <TextBlock x:Name="TimeList_info" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
                    Text="{Binding SelectedItem, Converter={StaticResource TimeConverter}, 
                    ElementName=TimeList}" TextWrapping="Wrap" VerticalAlignment="Top" 
                    RenderTransformOrigin="0,0" Height="30" Width="255" TextAlignment="Center" Margin="0,316,0,0"/>
 
-        <TextBlock x:Name="AccurasyList_info" Grid.Column="1" HorizontalAlignment="Left" 
+        <TextBlock x:Name="AccurasyList_info" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
                    Text="{Binding SelectedItem, Converter={StaticResource AccurasyConverter}, ElementName=AccurasyList}" TextWrapping="Wrap" VerticalAlignment="Top" 
                    RenderTransformOrigin="0,0" Height="30" Width="255" TextAlignment="Center" Margin="0,363,0,0"/>
     </Grid>

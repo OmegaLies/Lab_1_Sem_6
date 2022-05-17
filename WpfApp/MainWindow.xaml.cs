@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using ClassLibrary;
@@ -88,7 +89,8 @@ namespace WpfApp
         {
             try
             {
-                Vdata.AddVMTime(grid);
+                VMGrid g = new(grid);
+                Vdata.AddVMTime(g);
             }
             catch (Exception ex)
             {
@@ -99,7 +101,8 @@ namespace WpfApp
         {
             try
             {
-                Vdata.AddVMAccuracy(grid);
+                VMGrid g = new(grid);
+                Vdata.AddVMAccuracy(g);
             }
             catch (Exception ex)
             {
@@ -138,6 +141,29 @@ namespace WpfApp
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            try
+            {
+                if (Vdata.change_property)
+                {
+                    MessageBoxResult result = MessageBox.Show("Save changes?", "Warning", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        Microsoft.Win32.SaveFileDialog file = new();
+                        if (file.ShowDialog() == true)
+                        {
+                            Vdata.Save(file.FileName);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            base.OnClosing(e);
         }
     }
 }

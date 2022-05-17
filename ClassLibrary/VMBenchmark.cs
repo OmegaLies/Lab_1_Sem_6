@@ -43,7 +43,7 @@ namespace ClassLibrary
                 {
                     for (int i = 0; i < n; i++)
                     {
-                        a[i] = grid.first + grid.step * i;
+                        a[i] = grid.first + (grid.step * i);
                     }
                 }
                 else

@@ -41,6 +41,7 @@ namespace ClassLibrary
                 time_EP = stopWatch.Elapsed.TotalSeconds;
                 LA_to_HA = time_LA / time_HA;
                 EP_to_HA = time_EP / time_HA;
+
             }
             catch (Exception ex)
             {

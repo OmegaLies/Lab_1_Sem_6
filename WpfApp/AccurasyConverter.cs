@@ -15,7 +15,7 @@ namespace WpfApp
                 if (value != null)
                 {
                     VMAccuracy val = (VMAccuracy)value;
-                    string res = "Max Abs " + val.Abs.ToString() + " on " + val.x.ToString("F2");
+                    string res = "Max Abs " + val.Abs.ToString() + " on " + val.x.ToString("F5");
                     return res;
                 }
                 return "";

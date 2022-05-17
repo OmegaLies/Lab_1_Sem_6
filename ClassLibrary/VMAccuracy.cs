@@ -24,14 +24,15 @@ namespace ClassLibrary
         {
             try
             {
-                double m = 0;
+                double m = Math.Abs(yHA[0] - yEP[0]);
                 int i = 0;
-                for (int k = 0; k < grid.n; k++)
+                for (int k = 1; k < grid.n; k++)
                 {
                     double max = Math.Abs(yHA[k] - yEP[k]);
-                    if (max >= m)
+                    if (max > m)
                     {
-                        m = max; i = k;
+                        m = max;
+                        i = k;
                     }
                 }
                 Abs = m;
